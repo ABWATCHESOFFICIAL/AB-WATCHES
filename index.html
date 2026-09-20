@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AB WATCHES — Luxury Timepieces</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#030303;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:4px;
+}
+
+.logo span{
+    color:#aaa;
+    font-weight:400;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 48%,#303030 0%,#101010 25%,#030303 65%);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.07);
+    animation:rotateRing 18s linear infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:900px;
+    height:900px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.035);
+    animation:rotateRing 28s linear infinite reverse;
+}
+
+@keyframes rotateRing{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:1250px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:100px 7% 50px;
+}
+
+.hero-text{
+    max-width:520px;
+    animation:fadeUp 1.2s ease forwards;
+}
+
+.hero-text small{
+    color:#999;
+    letter-spacing:6px;
+    font-size:11px;
+}
+
+.hero-text h1{
+    font-size:clamp(60px,8vw,105px);
+    line-height:.9;
+    letter-spacing:5px;
+    margin:25px 0;
+    background:linear-gradient(
+        110deg,
+        #fff,
+        #777,
+        #fff,
+        #555,
+        #fff
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:metal 6s linear infinite;
+}
+
+@keyframes metal{
+    0%{background-position:0%}
+    50%{background-position:100%}
+    100%{background-position:0%}
+}
+
+.hero-text p{
+    color:#888;
+    line-height:1.8;
+    font-size:16px;
+    max-width:450px;
+    margin-bottom:30px;
+}
+
+.shop-btn{
+    position:relative;
+    display:inline-block;
+    padding:17px 38px;
+    color:#fff;
+    text-decoration:none;
+    border:1px solid #777;
+    letter-spacing:3px;
+    font-size:12px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.shop-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:#fff;
+    transition:.4s;
+    z-index:-1;
+}
+
+.shop-btn:hover{
+    color:#000;
+}
+
+.shop-btn:hover::before{
+    left:0;
+}
+
+/* ================= WATCH ================= */
+
+.watch-area{
+    width:500px;
+    height:500px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:watchFloat 5s ease-in-out infinite;
+}
+
+@keyframes watchFloat{
+    0%,100%{transform:translateY(0) rotate(-2deg)}
+    50%{transform:translateY(-18px) rotate(2deg)}
+}
+
+.watch-glow{
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(255,255,255,.18),
+        transparent 65%
+    );
+    filter:blur(20px);
+}
+
+.watch{
+    width:315px;
+    height:315px;
+    border-radius:50%;
+    position:relative;
+    background:
+        radial-gradient(circle at 35% 25%,#777,#222 35%,#050505 70%);
+    border:12px solid #8d8d8d;
+    box-shadow:
+        0 0 0 4px #181818,
+        0 25px 70px rgba(0,0,0,.9),
+        inset 0 0 30px #000;
+}
+
+/* watch shine */
+.watch::before{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:430px;
+    top:-60px;
+    left:-180px;
+    transform:rotate(35deg);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+    animation:shine 4s infinite;
+}
+
+@keyframes shine{
+    0%{left:-200px}
+    45%,100%{left:350px}
+}
+
+.brand{
+    position:absolute;
+    top:65px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-size:13px;
+    letter-spacing:4px;
+    color:#ddd;
+}
+
+.watch-center{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#fff;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:5;
+    box-shadow:0 0 10px #fff;
+}
+
+.hand{
+    position:absolute;
+    left:50%;
+    bottom:50%;
+    transform-origin:bottom center;
+    border-radius:5px;
+}
+
+.hour{
+    width:6px;
+    height:70px;
+    background:#eee;
+    transform:translateX(-50%) rotate(145deg);
+}
+
+.minute{
+    width:4px;
+    height:105px;
+    background:#bbb;
+    transform:translateX(-50%) rotate(35deg);
+}
+
+.second{
+    width:2px;
+    height:115px;
+    background:#fff;
+    transform:translateX(-50%) rotate(0deg);
+    animation:secondHand 60s linear infinite;
+}
+
+@keyframes secondHand{
+    from{transform:translateX(-50%) rotate(0deg)}
+    to{transform:translateX(-50%) rotate(360deg)}
+}
+
+.number{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    color:#ddd;
+}
+
+.n12{transform:rotate(0deg) translateY(-125px) rotate(0deg)}
+.n3{transform:rotate(90deg) translateY(-125px) rotate(-90deg)}
+.n6{transform:rotate(180deg) translateY(-125px) rotate(-180deg)}
+.n9{transform:rotate(270deg) translateY(-125px) rotate(-270deg)}
+
+/* ================= COLLECTION ================= */
+
+section{
+    padding:110px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.title small{
+    color:#777;
+    letter-spacing:5px;
+}
+
+.title h2{
+    font-size:42px;
+    letter-spacing:4px;
+    margin-top:12px;
+}
+
+.products{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.product{
+    background:#0c0c0c;
+    border:1px solid #222;
+    padding:15px;
+    transition:.5s;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+    border-color:#777;
+}
+
+.product-image{
+    height:330px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(circle,#292929,#050505 70%);
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transition:.5s;
+}
+
+.product:hover img{
+    transform:scale(1.07);
+}
+
+.info{
+    padding:20px 5px 10px;
+}
+
+.info h3{
+    font-size:20px;
+    letter-spacing:1px;
+}
+
+.info p{
+    color:#777;
+    font-size:14px;
+    margin:9px 0 15px;
+}
+
+.price{
+    color:#ddd;
+    font-weight:bold;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about p{
+    color:#888;
+    line-height:2;
+    font-size:16px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #222;
+    text-align:center;
+    padding:35px;
+    color:#666;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero-content{
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        gap:20px;
+        padding-top:120px;
+    }
+
+    .hero-text p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .watch-area{
+        width:360px;
+        height:360px;
+        transform:scale(.85);
+    }
+
+    .watch{
+        width:260px;
+        height:260px;
+    }
+
+    .watch-glow{
+        width:300px;
+        height:300px;
+    }
+
+    .n12{transform:rotate(0deg) translateY(-103px) rotate(0deg)}
+    .n3{transform:rotate(90deg) translateY(-103px) rotate(-90deg)}
+    .n6{transform:rotate(180deg) translateY(-103px) rotate(-180deg)}
+    .n9{transform:rotate(270deg) translateY(-103px) rotate(-270deg)}
+
+    .products{
+        grid-template-columns:1fr;
+        max-width:430px;
+    }
+
+    .title h2{
+        font-size:30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">AB <span>WATCHES</span></div>
+
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#collection">COLLECTION</a></li>
+        <li><a href="#about">ABOUT</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <small>THE ART OF TIME</small>
+
+            <h1>AB<br>WATCHES</h1>
+
+            <p>
+                Precision crafted for those who appreciate
+                timeless design, premium details and modern luxury.
+            </p>
+
+            <a href="#collection" class="shop-btn">
+                SHOP NOW
+            </a>
+
+        </div>
+
+
+        <!-- ANIMATED WATCH -->
+        <div class="watch-area">
+
+            <div class="watch-glow"></div>
+
+            <div class="watch">
+
+                <div class="brand">AB WATCHES</div>
+
+                <div class="number n12">12</div>
+                <div class="number n3">3</div>
+                <div class="number n6">6</div>
+                <div class="number n9">9</div>
+
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+
+                <div class="watch-center"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COLLECTION -->
+<section id="collection">
+
+    <div class="title">
+        <small>DISCOVER</small>
+        <h2>THE COLLECTION</h2>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+
+            <div class="product-image">
+                <img
+                src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=85"
+                alt="AB Classic Watch">
+            </div>
+
+            <div class="info">
+                <h3>AB CLASSIC</h3>
+                <p>Elegant silver timepiece.</p>
+                <div class="price">Rs. 8,999</div>
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                <img
+                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=700&q=85"
+                alt="AB Elite Watch">
+            </div>
+
+            <div class="info">
+                <h3>AB ELITE</h3>
+                <p>Modern luxury design.</p>
+                <div class="price">Rs. 11,999</div>
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                <img
+                src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=700&q=85"
+                alt="AB Noir Watch">
+            </div>
+
+            <div class="info">
+                <h3>AB NOIR</h3>
+                <p>Bold black premium finish.</p>
+                <div class="price">Rs. 13,999</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="title">
+        <small>OUR STORY</small>
+        <h2>AB WATCHES</h2>
+    </div>
+
+    <div class="about">
+
+        <p>
+            AB WATCHES combines contemporary design with the timeless
+            character of fine watchmaking. Every detail is created to
+            make your time feel extraordinary.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 AB WATCHES — TIME. REDEFINED.
+</footer>
+
+
+</body>
+</html>
